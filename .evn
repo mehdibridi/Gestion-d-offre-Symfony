@@ -1,0 +1,2 @@
+# use this to configure a traditional SMTP server
+MAILER_URL=smtp://smtp.example.com:465?encryption=ssl&auth_mode=login&username=admin@example.com&password=s$cret

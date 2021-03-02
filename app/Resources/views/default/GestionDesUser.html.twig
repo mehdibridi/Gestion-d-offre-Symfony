@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-FileUpload.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap-datepicker.js"></script>
+</head>
+<body>
+{% block body %}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{ path('main_home') }}">Accueil</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Offre <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ path('Offre_Ajouter') }}">Ajouter un offre</a></li>
+                        <li><a href="{{ path('offre_show') }}">Gestion des offres</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Candidat <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ path('Condidat_show') }}">Gestion des candidats</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Catégories des offres <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ path('CategorieOffre_Ajouter') }}">Ajouter une categories</a></li>
+                        <li><a href="{{ path('Lister_CategorieOffre') }}">Lister les categories</a></li>
+
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contact <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ path('Contact_Ajouter') }}">Envoyer un email</a></li>
+                        <li><a href="{{ path('Lister_Email') }}">Email envoyer</a></li>
+
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Utilisateur <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ path('user_show') }}">Gestion des utilisateurs</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ path('security_logout') }}">Déconnexion</a></li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">user</th>
+            <th scope="col">mot de passe</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        {% for gestion in f  %}
+            <tr>
+                <td>{{ gestion.email }}</td>
+                <td>{{ gestion.password }}</td>
+                <td> <a href="{{ path('user_show',{ apartmentId:  gestion.idUser }) }}" class="btn btn-danger" name="Supprimer">Delete</a></td>
+
+            </tr>
+        {% endfor %}
+        <tbody>
+    </table>
+
+    <div class="text-center">
+        <div class="navigation" >
+            {{ knp_pagination_render(f) }}
+        </div>
+    </div>
+
+
+{% endblock %}
+
+</body>
+</html>

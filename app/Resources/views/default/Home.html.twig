@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-FileUpload.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap-datepicker.js"></script>
+</head>
+<body>
+{% block body %}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{ path('accueille_home') }}">Accueil</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+
+                    <li><a href="{{ path('security_logout') }}">Connexion</a></li>
+                    <li><a href="{{ path('security_logout') }}">Inscription</a></li>
+
+            </ul>
+        </div>
+        </div>
+    </nav>
+
+    <p class="align-middle"><h1 class="col-sm-12 text-center">Bienvenue sur la page d'accueil</h1></p>
+    <a class="btn-link" href="{{ path('user_offre') }}"><h5 class="col-sm-12 text-center">Clique ici si vous voulez voir les offres</h5></a>
+
+{% endblock %}
+</body>
+</html>

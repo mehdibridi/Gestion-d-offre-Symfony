@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-FileUpload.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap-datepicker.js"></script>
+</head>
+<body>
+{% block body %}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                {%  if not app.user %}
+                    <a class="navbar-brand" href="{{  path('accueille_home')  }}">Accueil</a>
+                {% else %}
+                    <a class="navbar-brand" href="{{ path('user_offre') }}">Accueil</a>
+                {% endif %}            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                {%  if not app.user %}
+                    <li><a href="{{ path('security_login') }}">Connexion</a></li>
+                    <li><a href="{{ path('security_Inscription') }}">Inscription</a></li>
+
+
+                {% else %}
+                    <li><a href="{{ path('security_logout') }}">Déconnexion</a></li>
+                {% endif %}
+
+            </ul>
+        </div>
+        </div>
+    </nav>
+    <div class="container">
+            <div class="navbar navbar-light" style="background-color: #e3f2fd">
+                <div class="fl">
+                    {%  if not app.user %}
+                        <td> <a href="{{ path('security_login') }}" class="btn btn-success" name=" postule" style="float: right">Je postule</a></td>
+
+                    {% else %}
+                        <td> <a href="{{ path('offre_id',{ offre_id:  liste.idOffres }) }}" class="btn btn-success" name=" postule" style="float: right">Je postule</a></td>
+                    {% endif %}
+                    <span class="block-top_item">Référence :  {{ liste.reference }}</br></span>
+                    <span class="block-top_item">  Annonce postée le : {{ liste.datePostulation|date("d/m/Y")  }}</span>
+
+                </div>
+            </div>
+            <div class="navbar navbar-light">
+
+                <h2 class="title-content-n1">Activités et responsabilités principales:</h2>
+                    <ul><li>{{ liste.activite }}</li></ul>
+                <h2>Qualifications :</h2>
+                    <ul><li>{{ liste.qualification }}</li></ul>
+                <h2>Compétences :</h2>
+                    <ul><li>{{ liste.competence}}</li></ul>
+
+
+            </div>
+
+    </div>
+
+
+
+
+{% endblock %}
+
+</body>
+</html>

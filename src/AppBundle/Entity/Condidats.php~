@@ -1,0 +1,597 @@
+<?php
+
+namespace AppBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Condidats
+ *
+ * @ORM\Table(name="condidats")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CondidatsRepository")
+ */
+class Condidats
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="idCondidats", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $idCondidats;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sourcedeCandidature", type="string", length=255)
+     */
+    private $sourcedeCandidature;
+    /**
+     * @ORM\ManyToMany(targetEntity="Offres", inversedBy="condidat")
+     * @ORM\JoinTable(name="inscription")
+     */
+    private $offre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cin", type="string", length=255)
+     */
+    private $cin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=40)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=40)
+     */
+    private $prenom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="courriel", type="string", length=255)
+     */
+    private $courriel;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="situationFamiliale", type="string", length=50)
+     */
+    private $situationFamiliale;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateDeNaissance", type="date")
+     */
+    private $dateDeNaissance;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="villeDeNaissance", type="string", length=255)
+     */
+    private $villeDeNaissance;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nationalite", type="string", length=255)
+     */
+    private $nationalite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=255)
+     */
+    private $adresse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codePostal", type="string", length=50)
+     */
+    private $codePostal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", length=255)
+     */
+    private $ville;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pays", type="string", length=255)
+     */
+    private $pays;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="numeroDeTelephone", type="string", length=255)
+     */
+    private $numeroDeTelephone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="disponibilite", type="string", length=30)
+     */
+    private $disponibilite;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateDeDisponibilite", type="date")
+     */
+    private $dateDeDisponibilite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="curriculumVitae", type="string", length=255)
+     */
+    private $curriculumVitae;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lettreeMotivation", type="string", length=255)
+     */
+    private $lettreeMotivation;
+
+
+    /**
+     * Get idCondidats
+     *
+     * @return int
+     */
+    public function getIdCondidats()
+    {
+        return $this->idCondidats;
+    }
+
+    /**
+     * Set sourcedeCandidature
+     *
+     * @param string $sourcedeCandidature
+     *
+     * @return Condidats
+     */
+    public function setSourcedeCandidature($sourcedeCandidature)
+    {
+        $this->sourcedeCandidature = $sourcedeCandidature;
+
+        return $this;
+    }
+
+    /**
+     * Get sourcedeCandidature
+     *
+     * @return string
+     */
+    public function getSourcedeCandidature()
+    {
+        return $this->sourcedeCandidature;
+    }
+
+    /**
+     * Set cin
+     *
+     * @param string $cin
+     *
+     * @return Condidats
+     */
+    public function setCin($cin)
+    {
+        $this->cin = $cin;
+
+        return $this;
+    }
+
+    /**
+     * Get cin
+     *
+     * @return string
+     */
+    public function getCin()
+    {
+        return $this->cin;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Condidats
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set prenom
+     *
+     * @param string $prenom
+     *
+     * @return Condidats
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * Set courriel
+     *
+     * @param string $courriel
+     *
+     * @return Condidats
+     */
+    public function setCourriel($courriel)
+    {
+        $this->courriel = $courriel;
+
+        return $this;
+    }
+
+    /**
+     * Get courriel
+     *
+     * @return string
+     */
+    public function getCourriel()
+    {
+        return $this->courriel;
+    }
+
+    /**
+     * Set situationFamiliale
+     *
+     * @param string $situationFamiliale
+     *
+     * @return Condidats
+     */
+    public function setSituationFamiliale($situationFamiliale)
+    {
+        $this->situationFamiliale = $situationFamiliale;
+
+        return $this;
+    }
+
+    /**
+     * Get situationFamiliale
+     *
+     * @return string
+     */
+    public function getSituationFamiliale()
+    {
+        return $this->situationFamiliale;
+    }
+
+    /**
+     * Set dateDeNaissance
+     *
+     * @param \DateTime $dateDeNaissance
+     *
+     * @return Condidats
+     */
+    public function setDateDeNaissance($dateDeNaissance)
+    {
+        $this->dateDeNaissance = $dateDeNaissance;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDeNaissance
+     *
+     * @return \DateTime
+     */
+    public function getDateDeNaissance()
+    {
+        return $this->dateDeNaissance;
+    }
+
+    /**
+     * Set villeDeNaissance
+     *
+     * @param string $villeDeNaissance
+     *
+     * @return Condidats
+     */
+    public function setVilleDeNaissance($villeDeNaissance)
+    {
+        $this->villeDeNaissance = $villeDeNaissance;
+
+        return $this;
+    }
+
+    /**
+     * Get villeDeNaissance
+     *
+     * @return string
+     */
+    public function getVilleDeNaissance()
+    {
+        return $this->villeDeNaissance;
+    }
+
+    /**
+     * Set nationalite
+     *
+     * @param string $nationalite
+     *
+     * @return Condidats
+     */
+    public function setNationalite($nationalite)
+    {
+        $this->nationalite = $nationalite;
+
+        return $this;
+    }
+
+    /**
+     * Get nationalite
+     *
+     * @return string
+     */
+    public function getNationalite()
+    {
+        return $this->nationalite;
+    }
+
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     *
+     * @return Condidats
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * Set codepostal
+     *
+     * @param string $codepostal
+     *
+     * @return Condidats
+     */
+    public function setCodepostal($codepostal)
+    {
+        $this->codepostal = $codepostal;
+
+        return $this;
+    }
+
+    /**
+     * Get codepostal
+     *
+     * @return string
+     */
+    public function getCodepostal()
+    {
+        return $this->codepostal;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param string $ville
+     *
+     * @return Condidats
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return string
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set pays
+     *
+     * @param string $pays
+     *
+     * @return Condidats
+     */
+    public function setPays($pays)
+    {
+        $this->pays = $pays;
+
+        return $this;
+    }
+
+    /**
+     * Get pays
+     *
+     * @return string
+     */
+    public function getPays()
+    {
+        return $this->pays;
+    }
+
+    /**
+     * Set numeroDeTelephone
+     *
+     * @param string $numeroDeTelephone
+     *
+     * @return Condidats
+     */
+    public function setNumeroDeTelephone($numeroDeTelephone)
+    {
+        $this->numeroDeTelephone = $numeroDeTelephone;
+
+        return $this;
+    }
+
+    /**
+     * Get numeroDeTelephone
+     *
+     * @return string
+     */
+    public function getNumeroDeTelephone()
+    {
+        return $this->numeroDeTelephone;
+    }
+
+    /**
+     * Set disponibilite
+     *
+     * @param string $disponibilite
+     *
+     * @return Condidats
+     */
+    public function setDisponibilite($disponibilite)
+    {
+        $this->disponibilite = $disponibilite;
+
+        return $this;
+    }
+
+    /**
+     * Get disponibilite
+     *
+     * @return string
+     */
+    public function getDisponibilite()
+    {
+        return $this->disponibilite;
+    }
+
+    /**
+     * Set dateDeDisponibilite
+     *
+     * @param \DateTime $dateDeDisponibilite
+     *
+     * @return Condidats
+     */
+    public function setDateDeDisponibilite($dateDeDisponibilite)
+    {
+        $this->dateDeDisponibilite = $dateDeDisponibilite;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDeDisponibilite
+     *
+     * @return \DateTime
+     */
+    public function getDateDeDisponibilite()
+    {
+        return $this->dateDeDisponibilite;
+    }
+
+    /**
+     * Set curriculumVitae
+     *
+     * @param string $curriculumVitae
+     *
+     * @return Condidats
+     */
+    public function setCurriculumVitae($curriculumVitae)
+    {
+        $this->curriculumVitae = $curriculumVitae;
+
+        return $this;
+    }
+
+    /**
+     * Get curriculumVitae
+     *
+     * @return string
+     */
+    public function getCurriculumVitae()
+    {
+        return $this->curriculumVitae;
+    }
+
+    /**
+     * Set lettreeMotivation
+     *
+     * @param string $lettreeMotivation
+     *
+     * @return Condidats
+     */
+    public function setLettreeMotivation($lettreeMotivation)
+    {
+        $this->lettreeMotivation = $lettreeMotivation;
+
+        return $this;
+    }
+
+    /**
+     * Get lettreeMotivation
+     *
+     * @return string
+     */
+    public function getLettreeMotivation()
+    {
+        return $this->lettreeMotivation;
+    }
+}
+
